@@ -16,4 +16,4 @@ class SoftDelMixin:
 
     @declared_attr
     def __mapper_args__(cls):
-        return {"confirmar filas eliminadas": False}
+        return {"confirm_deleted_rows": False}
