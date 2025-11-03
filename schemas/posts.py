@@ -1,5 +1,7 @@
 from pydantic import BaseModel, field_validator
 from typing import Optional, List
+from datetime import datetime
+from schemas.tags import TagsResponse
 
 
 class PostBase(BaseModel):
@@ -20,6 +22,10 @@ class PostCreate(PostBase):
 class PostResponse(PostBase):
     id: int
     user_id: int
-    created_at: str
-    updated_at: str | None
-    tags: List[int]
+    created_at: datetime
+    updated_at: datetime | None
+    tags: List[TagsResponse]
+    
+    model_config = {
+        "from_attributes": True
+    }

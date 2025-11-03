@@ -20,5 +20,8 @@ class TagsCreate(TagsBase):
 
 class TagsResponse(TagsBase):
     id: int
-    created_at: str
-    updated_at: str | None
+    name: str
+    
+    model_config = {
+        "from_attributes": True
+    }

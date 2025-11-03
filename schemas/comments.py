@@ -1,5 +1,6 @@
 from pydantic import BaseModel, field_validator
 from typing import Optional
+from datetime import datetime
 
 
 class CommentsBase(BaseModel):
@@ -20,5 +21,9 @@ class CommentsResponse(CommentsBase):
     id: int
     post_id: int
     user_id: int
-    created_at: str
-    updated_at: str | None
+    created_at: datetime
+    updated_at: datetime | None
+    
+    model_config = {
+    "from_attributes": True
+    }
