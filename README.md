@@ -20,11 +20,8 @@ Este proyecto es una API RESTful construida con FastAPI, SQLAlchemy async y Pyda
 ├── middleware/ # Middleware personalizado
 └── main.py # Punto de entrada
 
-text
-
 ## 🛠️ Instalación
 
-```bash
 git clone https://github.com/V1ctor5n4k3/challenge_backend.git
 cd challenge_backend
 python -m venv venv
@@ -248,18 +245,18 @@ uvicorn main:app --host 0.0.0.0 --port 8000 --workers 4
 ## 🐳 Docker
 
 ### Construir la imagen
-```bash
+
 docker build -t challenge-backend-api .
 Ejecutar el contenedor
-bash
+
 docker run -p 8000:8000 --name challenge-api challenge-backend-api
 Ejecutar en segundo plano
-bash
+
 docker run -d -p 8000:8000 --name challenge-api challenge-backend-api
 Variables de entorno
 Puedes sobreescribir las variables de entorno al ejecutar el contenedor:
 
-bash
+
 docker run -d -p 8000:8000 \
   -e DATABASE_URL="postgresql://usuario:password@host:5432/db" \
   -e SECRET_KEY="tu_clave_secreta" \
@@ -297,10 +294,10 @@ volumes:
   postgres_data:
 Ejecutar con Docker Compose:
 
-bash
+
 docker-compose up -d
 Comandos útiles
-bash
+
 # Ver logs del contenedor
 docker logs challenge-api
 
