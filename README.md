@@ -21,7 +21,7 @@ pip install -r --no-cache-dir requirements.txt
 
 
 
-🔄 Flujo Recomendado de Uso
+## 🔄 Flujo Recomendado de Uso
 Registrar usuario → POST /auth/register
 
 Iniciar sesión → POST /auth/login (guardar token)
@@ -34,7 +34,7 @@ Crear comentarios → POST /comments/create_comment (usando ID de post)
 
 
 
-🧠 Notas Técnicas
+## 🧠 Notas Técnicas
 Todos los modelos usan from_attributes = True para compatibilidad con Pydantic v2
 
 Se aplica borrado lógico con is_deleted = True en lugar de eliminación física
@@ -49,7 +49,7 @@ Manejo asíncrono de base de datos para mejor performance
 
 
 
-📋 Colección Postman
+## 📋 Colección Postman
 Incluye un archivo Blog-API-FastAPI.postman_collection.json con todos los endpoints preconfigurados, incluyendo:
 
 Variables de entorno para base URL y tokens
@@ -62,7 +62,7 @@ Configuración de headers de autenticación
 
 
 
-🚀 Ejecución
+## 🚀 Ejecución
 uvicorn main:app --host 0.0.0.0 --port 8000 --workers 4
 
 
@@ -117,7 +117,7 @@ services:
 
 
 
-🧑‍💻 Autor
-Victor Felipe Lugo Gonzalez
+## 🧑‍💻 Autor
+#Victor Felipe Lugo Gonzalez
 
-Especialista en backend Python, FastAPI y automatización avanzada.
+##Especialista en backend Python, FastAPI y automatización avanzada.
