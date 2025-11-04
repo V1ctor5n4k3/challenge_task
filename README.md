@@ -56,7 +56,7 @@ Manejo asíncrono de base de datos para mejor performance
 
 
 ## 📋 Colección Postman
-Incluye un archivo Blog-API-FastAPI.postman_collection.json con todos los endpoints preconfigurados, incluyendo:
+Incluye un archivo challenge_backend.collection con todos los endpoints preconfigurados, incluyendo:
 
 Variables de entorno para base URL y tokens
 
@@ -91,7 +91,10 @@ docker run -d -p 8000:8000 \
   -e DATABASE_URL="postgresql://usuario:password@host:5432/db" \
   -e SECRET_KEY="tu_clave_secreta" \
   --name challenge-api challenge-backend-api
-Docker Compose (Recomendado)
+
+
+  
+Docker Compose 
 Crea un archivo docker-compose.yml:
 
 yaml
@@ -124,5 +127,6 @@ services:
 
 
 ## 🧑‍💻 Autor
-Victor Felipe Lugo Gonzalez
+Victor Felipe Lugo González
+
 Especialista en backend Python, FastAPI y automatización avanzada.
