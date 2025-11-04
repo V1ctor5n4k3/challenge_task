@@ -1,0 +1,41 @@
+---
+
+## 🧾 `.gitignore`
+
+```gitignore
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.egg-info/
+*.env
+*.sqlite3
+
+# Virtualenv
+venv/
+ENV/
+env/
+.venv/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+
+# Alembic
+alembic.ini
+migrations/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Tests
+.coverage
+htmlcov/
+.cache/
