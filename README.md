@@ -118,6 +118,5 @@ services:
 
 
 ## 🧑‍💻 Autor
-#Victor Felipe Lugo Gonzalez
-
-##Especialista en backend Python, FastAPI y automatización avanzada.
+Victor Felipe Lugo Gonzalez
+Especialista en backend Python, FastAPI y automatización avanzada.
