@@ -13,9 +13,15 @@ Este proyecto es una API RESTful construida con FastAPI, SQLAlchemy async y Pyda
 ## 🛠️ Instalación
 
 git clone https://github.com/V1ctor5n4k3/challenge_backend.git
+
 cd challenge_backend
+
 python -m venv venv
-source venv/bin/activate  # o .\venv\Scripts\activate en Windows
+
+source venv/bin/activate  
+
+#o .\venv\Scripts\activate en Windows
+
 pip install -r --no-cache-dir requirements.txt
 
 
