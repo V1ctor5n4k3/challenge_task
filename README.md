@@ -25,6 +25,22 @@ source venv/bin/activate
 pip install -r --no-cache-dir requirements.txt
 ```
 
+## Migración de la Base de Datos(PostgreSQL) con Alembic
+
+1. Modificar la cadena de conexión a la base de datos en "alembic.ini"
+
+```bash
+sqlalchemy.url = postgresql+psycopg2://postgres:postgres@localhost:5432/test
+```
+
+2. Ejecutar la migración
+
+```bash
+alembic revision --autogenerate -m "Migración inicial"
+
+alembic upgrade head
+
+```
 
 
 ## Flujo Recomendado de Uso
@@ -41,7 +57,7 @@ Crear comentarios → POST /comments/create_comment (usando ID de post)
 
 
 ## Notas Técnicas
-Todos los modelos usan from_attributes = True para compatibilidad con Pydantic v2
+Todos los esquemas usan from_attributes = True para compatibilidad con Pydantic v2
 
 Se aplica borrado lógico con is_deleted = True en lugar de eliminación física
 
@@ -91,20 +107,5 @@ Ejecutar en segundo plano
 docker run -d -p 8000:8000 --name challenge-api challenge-backend-api
 ```
 
-Variables de entorno
-Puedes sobreescribir las variables de entorno al ejecutar el contenedor:
+También puede construir la imagen y utilizar el fichero docker-compose.yml para desplegar la solución
 
-```bash
-docker run -d -p 8000:8000 \
-  -e DATABASE_URL="postgresql://usuario:password@host:5432/db" \
-  -e SECRET_KEY="tu_clave_secreta" \
-  --name challenge-api challenge-backend-api
-
-```
-
-
-  
-
-
-
-Especialista en backend Python, FastAPI y automatización avanzada.
