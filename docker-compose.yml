@@ -6,25 +6,41 @@ services:
     ports:
       - "8000:8000"
     environment:
-      DATABASE_URL: "postgresql://admin:secret@db:5432/challenge_db" # Cambiar la cadena de conexión 
+      DATABASE_URL: "postgresql+asyncpg://admin:123@db:5432/challenge_db" # Cambiar la cadena de conexión 
     volumes:
       - .:/app
     depends_on:
       - db
+      - migrations
     restart: unless-stopped
 
-  db:
-    image: postgres:15
-    container_name: db_challenge-api
+  migrations:
+    build: .
+    command: >
+      sh -c "sleep 5 && 
+             alembic upgrade head"
+    depends_on:
+      db:
+        condition: service_healthy
     environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: secret
-      POSTGRES_DB: challenge_db
+      - DATABASE_URL_SYNC=postgresql+psycopg2://admin:123@db:5432/challenge_db
+    volumes:
+      - .:/app
+    restart: on-failure
+
+  db:
+    image: postgres:16
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=123
+      - POSTGRES_DB=challenge_db
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
-    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d challenge_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
 volumes:
   postgres_data:
