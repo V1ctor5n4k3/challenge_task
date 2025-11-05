@@ -76,8 +76,6 @@ Incluye un archivo challenge_backend.collection con todos los endpoints preconfi
 
 Variables de entorno para base URL y tokens
 
-Tests automáticos para verificar respuestas
-
 Ejemplos de requests listos para usar
 
 Configuración de headers de autenticación
