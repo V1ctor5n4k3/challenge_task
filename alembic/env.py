@@ -1,7 +1,11 @@
 from logging.config import fileConfig
 
 from db.base import Base
-from models import users, posts, comments, tags
+from db.base import Base
+from models.users import User
+from models.posts import Posts
+from models.tags import Tags
+from models.comments import Comments
 
 
 from sqlalchemy import engine_from_config

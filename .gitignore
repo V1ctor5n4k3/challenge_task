@@ -28,7 +28,6 @@ env/
 *.log
 
 # Alembic
-alembic.ini
 migrations/
 
 # OS

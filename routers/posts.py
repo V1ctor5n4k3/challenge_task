@@ -40,7 +40,7 @@ async def create_post(
     )
     post_final = post_con_tags.scalar_one_or_none()
     if not post_final:
-        raise HTTPException(status_code=404, detail="Post no encontrado tras creación")  # <-- defensa extra
+        raise HTTPException(status_code=404, detail="Post no encontrado tras creación")
 
     return PostResponse.model_validate(post_final)
 

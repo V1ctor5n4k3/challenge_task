@@ -1,0 +1,30 @@
+services:
+
+  backend:
+    image: challenge-backend-api
+    container_name: challenge-api
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: "postgresql://admin:secret@db:5432/challenge_db" # Cambiar la cadena de conexión 
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  db:
+    image: postgres:15
+    container_name: db_challenge-api
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: challenge_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

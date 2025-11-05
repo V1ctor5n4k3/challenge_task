@@ -7,5 +7,5 @@ class TimingMiddleware(BaseHTTPMiddleware):
         start = time.time()
         response = await call_next(request)
         duration = time.time() - start
-        print(f"⏱️ Tiempo de respuesta: {duration:.4f} segundos")
+        print(f"Tiempo de respuesta: {duration:.4f} segundos")
         return response
