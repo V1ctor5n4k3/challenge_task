@@ -95,15 +95,5 @@ uvicorn main:app --host 0.0.0.0 --port 8000 --workers 4
 docker build -t challenge-backend-api .
 ```
 
-Ejecutar el contenedor
-```bash
-docker run -p 8000:8000 --name challenge-api challenge-backend-api
-```
-
-Ejecutar en segundo plano
-```bash
-docker run -d -p 8000:8000 --name challenge-api challenge-backend-api
-```
-
-También puede construir la imagen y utilizar el fichero docker-compose.yml para desplegar la solución
+Despues de construir la imagen y utilizar el fichero docker-compose.yml para desplegar la solución
 
