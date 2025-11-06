@@ -29,3 +29,7 @@ class PostResponse(PostBase):
     model_config = {
         "from_attributes": True
     }
+    
+class PostTagsCreate(BaseModel):
+    post_id: int
+    tag_id: int

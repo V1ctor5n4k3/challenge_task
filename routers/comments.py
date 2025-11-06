@@ -43,3 +43,25 @@ async def list_comments(db: AsyncSession = Depends(get_session),
         Comments.is_deleted == False).offset(skip).limit(limit))
 
     return result.scalars().all()
+
+
+@router.delete("/{comments_id}", response_model=str)
+async def delete_post(
+    comments_id: int,
+    db: AsyncSession = Depends(get_session),
+    current_user=Depends(get_current_user)
+):
+    comm_query = await db.execute(
+        select(Comments)
+        .where(Comments.id == comments_id)
+        .where(Comments.user_id == current_user.id)
+        .where(Comments.is_deleted.is_(False))
+    )
+    com = comm_query.scalar_one_or_none()
+    
+    if not com:
+        raise HTTPException(status_code=404, detail="Comentario no encontrado")
+    
+    com.is_deleted = True
+    await db.commit()
+    return "Comentario eliminado correctamente"

@@ -20,6 +20,6 @@ async def list_users(db: AsyncSession = Depends(get_session),
                      limit: int = Query(10, le=100)):
 
     result = await db.execute(select(User).where(
-        not User.is_deleted).offset(skip).limit(limit))
+        User.is_deleted.is_(False)).offset(skip).limit(limit))
 
     return result.scalars().all()
