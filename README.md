@@ -27,21 +27,7 @@ pip install -r --no-cache-dir requirements.txt
 
 ## Migración de la Base de Datos(PostgreSQL) con Alembic
 
-1. Modificar la cadena de conexión a la base de datos en "alembic.ini"
-
-```bash
-sqlalchemy.url = postgresql+psycopg2://postgres:postgres@localhost:5432/test
-```
-
-2. Ejecutar la migración
-
-```bash
-alembic revision --autogenerate -m "Migración inicial"
-
-alembic upgrade head
-
-```
-
+La Migracion con Alembic se hace automaticamente con el docker-compose
 
 ## Flujo Recomendado de Uso
 Registrar usuario → POST /auth/register
